@@ -29,7 +29,9 @@ class RepositoryFile {
     }
 
     public function isProjectFile(): bool {
-        return ! preg_match('/(^.idea|^.git|ex\\d|^vendor)\//', $this->getRelativePath());
+        return ! preg_match(
+            '/(^.idea|^.git|ex\\d|^vendor)[\/\\\\]/',
+            $this->getRelativePath());
     }
 
     public function isGraphicsFile(): bool {
